@@ -30,8 +30,11 @@
 		<!-- HTTP Connector -->
 		<http.connector.version>1.10.0</http.connector.version>
 
-		<!-- MUnit -->
-		<munit.version>3.4.0</munit.version>
+		<!-- MUnit — pinned to 3.7.4: 3.4.0's embedded test container hits a
+		     JPMS module conflict (org.apache.maven.resolver.named.locks vs
+		     org.apache.maven.resolver.named both exporting the same package)
+		     under JDK 17, which 3.7.4 resolves. -->
+		<munit.version>3.7.4</munit.version>
 
 		<!-- Standard Maven skip flag: lets a pipeline's Build stage skip
 		     MUnit and defer it to a separate Test stage -->
