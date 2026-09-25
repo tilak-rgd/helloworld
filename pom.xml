@@ -45,6 +45,10 @@
 		<sonar.projectKey>hello-world-api</sonar.projectKey>
 		<sonar.sources>src/main</sonar.sources>
 		<sonar.tests>src/test</sonar.tests>
+		<!-- Without this, SonarQube's Java analyzer can't run most bug/vulnerability
+		     rules (they need bytecode, not just source) — they silently no-op instead
+		     of erroring, which is why a file with real issues can still show 0 findings. -->
+		<sonar.java.binaries>target/classes</sonar.java.binaries>
 
 		<!-- EXCHANGE_PUBLISH: override at publish time with
 		     -Danypoint.org.id=<your Anypoint org id> -->
